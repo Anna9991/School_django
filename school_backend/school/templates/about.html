@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_content %}
+<link rel="stylesheet" href="{% static 'school/css/about.css' %}" />
+{% endblock %}
+
+{% block header_content %}
+<li>
+  <a href="{% url 'index' %}">Home</a>
+</li>
+<li class="header__list-choose">
+  <a href="#">About us</a>
+</li>
+<li>
+  <a href="{% url 'classes' %}">Classes</a>
+</li>
+<li>
+  <a href="{% url 'faq' %}">FAQ</a>
+</li>
+<li>
+  <a href="{% url 'contacts' %}">Contact</a>
+</li>
+{% endblock %}
+
+{% block main_content %}
+<section class="second__intro" id="top">
+  <div class="overlay"></div>
+  <div>
+    <h1>About Us</h1>
+  </div>
+</section>
+<section class="play">
+  <div>
+    <img src="{% static "school/img/start.jpg" %}" alt="teacher" />
+  </div>
+  <div>
+    <h2>Play &amp; Learn</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+      nobis dolor reprehenderit deserunt, tempora dolorem adipisci ipsa
+      fugit est odio iusto sed numquam incidunt impedit doloribus non quo,
+      neque nostrum?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+      nobis dolor reprehenderit deserunt, tempora dolorem adipisci ipsa
+      fugit est odio iusto sed numquam incidunt impedit doloribus non quo,
+      neque nostrum?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+      nobis dolor reprehenderit deserunt, tempora dolorem adipisci ipsa
+      fugit est odio iusto sed numquam incidunt impedit doloribus non quo,
+      neque nostrum?
+    </p>
+  </div>
+</section>
+
+<section class="contact-us">
+  <h2>Let's Talk About Opportunities</h2>
+  <div class="contact-us__buttons">
+    <div class="btn btn-white">
+      <a href="tel:{{ school_info.phone }}">Call now</a>
+    </div>
+    <div class="btn btn-violet">
+      <a href="{% url 'contacts' %}">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="teachers">
+  <h2>Our team</h2>
+  <div class="teacher__cards">
+    {% for teacher in teachers_obj %}
+    <div class="card">
+      <div class="card-image">
+        <img src="{{ teacher.photo.url }}" alt="teacher" />
+        <div class="card-overlay">
+          <a href={{ teacher.instagram_url }} target="_blank">
+            <div class="icon">
+              <i class="font-accent fa-instagram"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="card-text">
+        <h3>{{ teacher.name }}</h3>
+        <span>{{ teacher.get_title_display }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+
+{% block script_content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'school/js/scripts.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_content %}
+<link rel="stylesheet" href="{% static 'school/css/faq.css' %}" />
+{% endblock %}
+
+{% block header_content %}
+<li>
+  <a href="{% url 'index' %}">Home</a>
+</li>
+<li>
+  <a href="{% url 'about' %}">About us</a>
+</li>
+<li>
+  <a href="{% url 'classes' %}">Classes</a>
+</li>
+<li class="header__list-choose">
+  <a href="#">FAQ</a>
+</li>
+<li>
+  <a href="{% url 'contacts' %}">Contact</a>
+</li>
+{% endblock %}
+
+{% block main_content %}
+<section class="second__intro" id="top">
+  <div class="overlay"></div>
+  <div>
+    <h1>Frequently Asked Questions</h1>
+  </div>
+</section>
+<section class="questions">
+  {% for question in questions_obj %}
+  <div>
+    <button class="accordion">{{ question.question }}</button>
+    <div class="panel">
+      <p>{{ question.answer }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}
+
+{% block script_content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'school/js/scripts.js' %}"></script>
+<script src="{% static 'school/js/faq.js' %}"></script>
+{% endblock %}

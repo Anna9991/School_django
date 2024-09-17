@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_content %}
+<link rel="stylesheet" href="{% static 'school/css/style.css' %}" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+{% endblock %}
+
+{% block header_content %}
+<li class="header__list-choose">
+  <a href="#">Home</a>
+</li>
+<li>
+  <a href="{% url 'about' %}">About us</a>
+</li>
+<li>
+  <a href="{% url 'classes' %}">Classes</a>
+</li>
+<li>
+  <a href="{% url 'faq' %}">FAQ</a>
+</li>
+<li>
+  <a href="{% url 'contacts' %}">Contact</a>
+</li>
+{% endblock %}
+
+{% block main_content %}
+<section class="intro" id="top">
+  <div class="overlay"></div>
+  <div class="intro__about">
+    <h2>Welcome To FunLearn Preschool!</h2>
+    <h1>Make A Brighter Future For Your Child</h1>
+    <p>
+      Preschool education is provided for children in the year preceding
+      their compulsory education. The preschool day is 4 hours during the
+      regular school year.
+    </p>
+    <div class="intro__buttons">
+      <div class="btn btn-white">
+        <a href="{% url 'about' %}">About us</a>
+      </div>
+      <div class="btn btn-violet">
+        <a href="{% url 'classes' %}">Classes</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reasons">
+  <img src="{% static "school/img/Kid_coloring.jpg" %}" alt="Girl's drawing" />
+  <div class="reasons__text">
+    <h2>Why choose us?</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. enim ad
+      minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. enim ad
+      minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat.
+    </p>
+    <ul class="reasons__list">
+      <li>
+        <i class="font-accent fa-check" aria-hidden="true"></i>
+        Daily Creativity
+      </li>
+      <li>
+        <i class="font-accent fa-check" aria-hidden="true"></i>
+        Qualified Teachers
+      </li>
+      <li>
+        <i class="font-accent fa-check" aria-hidden="true"></i>
+        Caring Community
+      </li>
+      <li>
+        <i class="font-accent fa-check" aria-hidden="true"></i>
+        Trusted Education
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="result">
+  <ul id="counter-box">
+    <li>
+      <img src="{% static "school/img/counter-icon-1.svg" %}" alt="Years" />
+      <p>
+        <span class="counter" data-number="{{ school_info.years_since_foundation }}"></span>+<br />Years of
+        Excellence
+      </p>
+    </li>
+    <li>
+      <img src="{% static "school/img/counter-icon-2.svg" %}" alt="Teachers" />
+      <p>
+        <span class="counter" data-number="{{ school_info.number_of_teachers }}"></span>+<br />Qualified
+        Teachers
+      </p>
+    </li>
+    <li>
+      <img src="{% static "school/img/counter-icon-3.svg" %}" alt="Students" />
+      <p>
+        <span class="counter" data-number="{{ school_info.number_of_students }}"></span>+<br />Students
+        Enrolled
+      </p>
+    </li>
+    <li>
+      <img src="{% static "school/img/counter-icon-4.svg" %}" alt="Award" />
+      <p>
+        <span class="counter" data-number="{{ school_info.number_of_awards }}"></span>+<br />Total Award
+      </p>
+    </li>
+  </ul>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <h2>Parents Are Saying</h2>
+    <div class="border"></div>
+  </div>
+  <div class="testimonials-content">
+    <div class="swiper testimonials-slider mySwiper">
+      <div class="swiper-wrapper">
+        {% for review in reviews %}
+          <div class="swiper-slide testimonials-item">
+            <div class="info">
+              <div class="name">{{ review.name }}</div>
+            </div>
+            <p>{{ review.comment }}</p>
+            <div class="stars">
+              {% for _ in review.stars_range %}
+                  <i class="font-accent fa-star"></i>
+              {% endfor %}
+              {% for _ in review.empty_stars_range %}
+                  <i class="font-accent fa-star-o"></i>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block script_content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{% static 'school/js/scripts.js' %}"></script>
+<script src="{% static 'school/js/counter.js' %}"></script>
+{% endblock %}

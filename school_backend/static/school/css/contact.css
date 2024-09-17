@@ -1,0 +1,157 @@
+.contact__question {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 50px 50px 0;
+  background-color: #f6f5ff;
+}
+
+.contact__question h2 {
+  color: #95c535;
+  font-size: 32px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.question-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Основной контейнер для звезд */
+.review-rating {
+  display: inline-flex;
+  flex-direction: row-reverse; /* Звезды будут слева направо */
+  justify-content: center;
+}
+
+.review-rating input {
+  display: none; /* Скрываем радио-кнопки */
+}
+
+.review-rating label {
+  font-size: 40px;
+  color: #ddd; /* Цвет неактивной звезды */
+  cursor: pointer;
+}
+
+.review-rating label:before {
+  content: "\f005"; /* Код иконки FontAwesome для звезды */
+  font-family: FontAwesome;
+}
+
+/* Закрашенные звезды при наведении мыши */
+.review-rating label:hover,
+.review-rating label:hover ~ label {
+  color: #7b68ee; /* Цвет активной звезды при наведении */
+}
+
+/* Закрашенные звезды при выборе */
+.review-rating input:checked ~ label {
+  color: #7b68ee; /* Цвет активной звезды после выбора */
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  border-left: #7b68ee solid 5px;
+  padding: 10px;
+}
+
+.question-button {
+  align-self: center;
+  max-width: 100px;
+}
+
+.contact-address {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 50px;
+  color: #4b5f6d;
+  text-align: center;
+  background-color: #f6f5ff;
+}
+
+.contact-address h2 {
+  color: #95c535;
+  text-transform: uppercase;
+}
+
+.address-cards ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.address-cards li {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  border-radius: 15px;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: 10px solid #95c535;
+  padding: 50px 0;
+  box-shadow: rgba(0, 0, 0, .3) 3px 3px 8px;
+}
+
+.address-cards span {
+  padding-bottom: 10px;
+  font-size: 22px;
+}
+
+.address-cards a:hover {
+  color: #7b68ee;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+
+@media all and (min-width: 481px) and (max-width: 899px){
+  .address-cards ul {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .form-control {
+    width: 350px;
+  }
+
+  .contact__question {
+    padding: 50px 10px 0;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .address-cards ul {
+    grid-template-columns: 1fr;
+    /* grid-template-rows: repeat(3, 1fr); */
+  }
+
+  .form-control {
+    width: 250px;
+  }
+
+  .contact__question {
+    padding: 50px 10px 0;
+  }
+}

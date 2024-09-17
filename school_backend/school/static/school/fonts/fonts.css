@@ -1,0 +1,22 @@
+@font-face {
+  font-family: Cabin;
+  src: url(./Cabin-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Croissant One";
+  src: url(./CroissantOne-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face{
+  font-family: FontAwesome;
+  src:
+    url(./fontawesome-webfont.woff2) format('woff2'),
+    url(./fontawesome-webfont.woff) format('woff'),
+    url(./fontawesome-webfont.ttf) format('truetype'),
+    url(./fontawesome-webfont.svg) format('svg');
+  font-weight: normal;
+  font-style: normal
+}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_content %}
+<link rel="stylesheet" href="{% static 'school/css/classes.css' %}" />
+{% endblock %}
+
+{% block header_content %}
+<li>
+  <a href="{% url 'index' %}">Home</a>
+</li>
+<li>
+  <a href="{% url 'about' %}">About us</a>
+</li>
+<li class="header__list-choose">
+  <a href="#">Classes</a>
+</li>
+<li>
+  <a href="{% url 'faq' %}">FAQ</a>
+</li>
+<li>
+  <a href="{% url 'contacts' %}">Contact</a>
+</li>
+{% endblock %}
+
+{% block main_content %}
+<section class="second__intro" id="top">
+  <div class="overlay"></div>
+  <div>
+    <h1>Popular Classes</h1>
+  </div>
+</section>
+
+<section class="classes">
+  <h2>Our lessons</h2>
+  <div class="classes__cards">
+    {% for lesson in lessons_obj%}
+    <div class="card-class">
+      <img src="{{ lesson.photo.url }}" alt="Lesson" />
+      <h3>{{ lesson.name }}</h3>
+      <p>Teacher: {{ lesson.teacher.name }}</p>
+      <div class="price">
+        <div class="coin"></div>
+        <span>Price: {{ lesson.price }} &euro;</span>
+      </div>
+      <p>{{ lesson.description }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+
+{% block script_content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'school/js/scripts.js' %}"></script>
+{% endblock %}

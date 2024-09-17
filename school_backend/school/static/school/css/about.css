@@ -1,0 +1,139 @@
+.play {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  gap: 30px;
+  padding: 100px 25px;
+  color: #4b5f6d;
+  background-color: #f6f5ff;
+}
+
+.play div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 20px;
+}
+
+.play h2 {
+  color: #95c535;
+  font-size: 32px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* CONTACT US */
+
+.contact-us {
+  padding: 50px;
+  text-align: center;
+  background-color: #95c535;
+}
+
+.contact-us h2 {
+  padding: 15px 0;
+}
+
+.contact-us__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* TEACHERS */
+
+.teachers {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 50px;
+  color: #4b5f6d;
+  background-color: #f6f5ff;
+}
+
+.teachers h2 {
+  color: #95c535;
+  font-size: 32px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.teacher__cards{
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  gap: 15px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  border-radius: 15px;
+  padding: 30px;
+  background-color: #fff;
+}
+
+.card-image {
+  position: relative;
+  max-width: 200px;
+  transition: 0.5s ease all;
+}
+
+.card-image img {
+  border: 5px solid #fff;
+  border-radius: 15px;
+  border-bottom-color: #7b68ee;
+  border-left-color: #7b68ee;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: none;
+  border-radius: 50%;
+  background-color: #7b68ee;
+}
+
+.card-image:hover {
+  transform: scale(1.2);
+}
+
+.card-image:hover .card-overlay {
+  display: block;
+}
+
+.card-text {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+@media all and (min-width: 481px) and (max-width: 899px){
+  .play {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr min-content;
+    padding: 20px;
+  }
+
+  .teachers {
+    padding: 50px 20px;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .play {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr min-content;
+    padding: 20px;
+  }
+
+  .teachers {
+    padding: 50px 20px;
+  }
+
+  .teacher__cards {
+    flex-direction: column;
+  }
+}

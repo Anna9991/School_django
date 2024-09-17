@@ -1,0 +1,143 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FunLearn</title>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href= "{% static "school/img/favicon_package_v0.16/apple-touch-icon.png" %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href= "{% static "school/img/favicon_package_v0.16/favicon-32x32.png" %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href= "{% static "school/img/favicon_package_v0.16/favicon-16x16.png" %}"
+    />
+    <link
+      rel="manifest"
+      href= "{% static "school/img/favicon_package_v0.16/site.webmanifest" %}"
+    />
+    <link
+      rel="mask-icon"
+      href= "{% static "school/img/favicon_package_v0.16/safari-pinned-tab.svg" %}"
+      color="#95c535"
+    />
+    <meta name="msapplication-TileColor" content="#95c535" />
+    <meta name="theme-color" content="#95c535" />
+
+    <link rel="stylesheet" href="{% static 'school/fonts/fonts.css' %}" />
+    <link rel="stylesheet" href="{% static 'school/css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'school/css/style_com.css' %}" />
+
+    {% block head_content %}
+    {% endblock %}
+
+</head>
+<body>
+    <header class="header">
+      <a class="header__logo" href="#">
+        <img src="{% static "school/img/logo.svg" %}" alt="FunLearn logo" />
+      </a>
+      <input type="checkbox" name="menu" id="menu" />
+      <label for="menu"><i class="font-accent icon-bar"></i></label>
+      <nav class="header__menu">
+        <ul class="header__list">
+            {% block header_content %}
+            {% endblock %}
+        </ul>
+      </nav>
+      <div class="header__login">
+        <i class="font-accent user-circle-white" aria-hidden="true"></i>
+        <button class="btn-reset">Log in</button>
+      </div>
+    </header>
+
+    <main>
+        {% block main_content %}
+        {% endblock %}
+        <a href="#top" class="gotopbtn"><i class="font-accent topup"></i></a>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__logo">
+          <div class="share">
+            <div class="share-button">
+              <a href="{{ school_info.facebook_url }}" target="_blank">
+                <div class="icon"><i class="font-accent fa-facebook"></i></div>
+                <span>Facebook</span>
+              </a>
+            </div>
+  
+            <div class="share-button">
+              <a href="{{ school_info.instagram_url }}" target="_blank">
+                <div class="icon"><i class="font-accent fa-instagram"></i></div>
+                <span>Instagram</span>
+              </a>
+            </div>
+  
+            <div class="share-button">
+              <a href="{{ school_info.youtube_url }}" target="_blank">
+                <div class="icon"><i class="font-accent fa-youtube"></i></div>
+                <span>YouTube</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <nav class="footer__navigation">
+          <h4>Useful Links</h4>
+          <ul>
+            <li>
+              <a href="{% url 'about' %}" class="text">About us</a>
+            </li>
+            <li>
+              <a href="{% url 'classes' %}" class="text">Classes</a>
+            </li>
+            <li>
+              <a href="{% url 'faq' %}" class="text">FAQ</a>
+            </li>
+            <li>
+              <a href="{% url 'contacts' %}" class="text">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <address class="footer__address">
+          <p>Contact Info</p>
+          <ul>
+            <li>
+              <i class="font-accent fa-phone"></i>
+              <div class="text">
+                Phone<br />
+                <a href="tel:{{ school_info.phone }}">{{ school_info.phone }}</a>
+              </div>
+            </li>
+            <li>
+              <i class="font-accent fa-email"></i>
+              <div class="text">
+                Email<br />
+                <a href="mailto:{{ school_info.email }}">{{ school_info.email }}</a>
+              </div>
+            </li>
+            <li>
+              <i class="font-accent fa-location"></i>
+              <div class="text">Address<br />{{ school_info.address }}</div>
+            </li>
+          </ul>
+        </address>
+      </footer>
+
+      {% block script_content %}
+      {% endblock %}
+</body>
+</html>
