@@ -5,7 +5,7 @@ import telegram
 from asgiref.sync import AsyncToSync
 
 
-BOT_TOKEN = '7050720612:AAFfDss4l3lefstCaECW5fBVQNJyxZL9l-4'
+BOT_TOKEN = ''
 CHAT_ID = 874580719
 
 
